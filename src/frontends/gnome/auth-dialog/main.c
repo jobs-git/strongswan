@@ -188,17 +188,6 @@ static gboolean get_secrets(const char *type, const char *cert_source, const cha
 	}
 	gtk_widget_show (GTK_WIDGET (dialog));
 
-too_short_retry:
-	if (nma_vpn_password_dialog_run_and_block (dialog))
-	{
-		new_pw = nma_vpn_password_dialog_get_password(dialog);
-		if (new_pw)
-		{
-			*out_pw = g_strdup (new_pw);
-		}
-	}
-	gtk_widget_hide (GTK_WIDGET (dialog));
-	gtk_widget_destroy (GTK_WIDGET (dialog));
 out:
 	g_free (prompt);
 	return TRUE;
