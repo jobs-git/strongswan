@@ -646,15 +646,6 @@ static bool add_auth_cfg_pw(NMStrongswanPluginPrivate *priv,
 	str = nm_setting_vpn_get_secret(vpn, "password");
 	if (streq(method, "psk"))
 	{
-		if (strlen(str) < 20)
-		{
-			g_set_error(err, NM_VPN_PLUGIN_ERROR,
-						NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-						"Pre-shared key is too short.");
-			user->destroy(user);
-			id->destroy(id);
-			return FALSE;
-		}
 		priv->creds->set_username_password(priv->creds, id, (char*)str);
 	}
 	else
