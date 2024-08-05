@@ -111,7 +111,6 @@ static gboolean get_secrets(const char *type, const char *cert_source, const cha
 {
 	NMAVpnPasswordDialog *dialog;
 	char *prompt, *pw = NULL;
-	const char *new_pw = NULL;
 
 	if (!(flags & NM_SETTING_SECRET_FLAG_NOT_SAVED) &&
 		!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
